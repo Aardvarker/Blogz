@@ -13,10 +13,21 @@
 </head>
 <body>
     <nav>
-        <a href="/blog">Main Blog Page</a> | 
-        <a href="/newpost">Add a Blog Entry</a>
+        <a href="/blog">MAIN BLOG</a> | 
+        <a href="/newpost">ADD ENTRY</a> | 
+        <a href="/">USER HOME</a> | 
+        <a href="/logout">Log-out</a> | 
+        <a href="/login">Log-in</a>
     </nav>
 
+    {% with messages = get_flashed_messages(with_categories=True) %}
+    <ul>
+    {% for category, message in messages %}
+        <li class="{{category}}">{{message}}</li>
+    {% endfor %}
+    </ul>
+    {% endwith %}
+    
     {% block content %}
     {% endblock %}
 
