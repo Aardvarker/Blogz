@@ -49,12 +49,12 @@ def blog():
     #amending Blog constructor to take in user object
     user_id = request.args.get('user')
 
-    if blog_id == None:
-        posts = Blog.query.all()
-        return render_template('blog.html', posts=posts, title='Build-a-blog')
-    else:
-        post = Blog.query.get(blog_id)
-        return render_template('entry.html', post=post, title='Blog Entry')
+    #if blog_id == None:
+     #   posts = Blog.query.all()
+      #  return render_template('blog.html', posts=posts, title='Build-a-blog')
+    #else:
+     #   post = Blog.query.get(blog_id)
+      #  return render_template('entry.html', post=post, title='Blog Entry')
 
     #Gotta make user pages work now....
     if user_id:
@@ -92,7 +92,7 @@ def new_post():
             return render_template('newpost.html', title='New Entry', title_error=title_error, body_error=body_error, 
                 blog_title=blog_title, blog_body=blog_body)
     
-    return render_template('newpost.html', title='New Entry')
+    return render_template('newpost.html', header='New Entry')
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
