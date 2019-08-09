@@ -40,7 +40,8 @@ def require_login():
 @app.route('/')
 def index():
     users = User.query.all()  #create userlist
-    return render_template('index.html', user=users,header="ALL USERS")
+   # print (users)
+    return render_template('index.html', users=users,header="ALL USERS")
 
 @app.route('/blog')
 def blog():
